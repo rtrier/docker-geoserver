@@ -6,7 +6,7 @@ volumes:
 services:
 
    geoserver:
-      image: kartoza/geoserver:${GS_VERSION}
+      image: kartoza/geoserver-gdi:${GS_VERSION}
       build:
         context: .
         args:
@@ -16,6 +16,8 @@ services:
           WAR_URL: ${WAR_URL}
           DOWNLOAD_ALL_STABLE_EXTENSIONS: ${DOWNLOAD_ALL_STABLE_EXTENSIONS}
           DOWNLOAD_ALL_COMMUNITY_EXTENSIONS: ${DOWNLOAD_ALL_COMMUNITY_EXTENSIONS}
+          GEOSERVERUSER_UID: ${GEOSERVERUSER_UID}
+          GEOSERVERUSERS_GID: ${GEOSERVERUSERS_GID}
       volumes:
         - geoserver-data:/opt/geoserver/data_dir
       ports:
